@@ -12,6 +12,17 @@
 
 #include <unistd.h>
 
+void	ft_write(char frt, char sec, char third)
+{
+	write(1, &frt, 1);
+	write(1, &sec, 1);
+	write(1, &third, 1);
+	if (!(frt == '7' && sec == '8' && third == '9'))
+	{
+		write(1, " ,", 1);
+	}
+}
+
 void	ft_print_comb(void)
 {
 	char	frtln;
@@ -29,11 +40,7 @@ void	ft_print_comb(void)
 			enlln = '2';
 			while (enlln <= '9')
 			{
-				write(1, &frtln, 1);
-				write(1, &secln, 1);
-				write(1, &enlln, 1);
-				if (!(frtln == '7' && secln == '8' && enlln == '9'))
-					write(1, " ,", 2);
+				ft_write(frtln, secln, enlln);
 				enlln++;
 			}
 			secln++;

@@ -17,47 +17,33 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
+void	ft_divmod(int n)
+{
+	ft_putchar(n / 10 + '0');
+	ft_putchar(n % 10 + '0');
+}
+
 void	ft_print_comb2(void)
 {
-	char	i;
-	char	j;
-	char	k;
-	char	l;
+	int		i;
+	int		j;
 
-	i = '0';
-	while (i <= '9')
+	i = 0;
+	while (i < 99)
 	{
 		j = i + 1;
-		j = '0';
-		while(j <= '9')
+		j = 1;
+		while (j <= 99)
 		{
-			k = j + 1;
-			k = '0';
-			while (k <= '9')
+			ft_divmod(i);
+			ft_putchar(' ');
+			ft_divmod(j);
+			if (!( i == 98 && j == 99))
 			{
-				l = k + 1;
-				l = '1';
-				while (l <= '9')
-				{
-					if (!(i == '0' && j == '0' && k == '0' && l == '1'))
-						write(1, " ,", 2);
-					ft_putchar(i);
-					ft_putchar(j);
-					ft_putchar(' ');
-					ft_putchar(k);
-					ft_putchar(l);
-					l++;
-				}
-				k++;
+				write(1, ", ", 2);
 			}
 			j++;
 		}
 		i++;
 	}
-}
-
-int	main()
-{
-	ft_print_comb2();
-	return (0);
 }
