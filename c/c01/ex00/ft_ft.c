@@ -1,49 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_comb2.c                                   :+:      :+:    :+:   */
+/*   ft_ft.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiaon-in <wiaon-in@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/20 11:52:42 by wiaon-in          #+#    #+#             */
-/*   Updated: 2025/05/22 09:15:21 by wiaon-in         ###   ########.fr       */
+/*   Created: 2025/05/22 11:26:37 by wiaon-in          #+#    #+#             */
+/*   Updated: 2025/05/22 11:30:24 by wiaon-in         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdio.h>
 
-void	ft_putchar(char c)
+void	ft_ft(int *nbr)
 {
-	write(1, &c, 1);
-}
-
-void	ft_divmod(int n)
-{
-	ft_putchar(n / 10 + '0');
-	ft_putchar(n % 10 + '0');
-}
-
-void	ft_print_comb2(void)
-{
-	int		i;
-	int		j;
-
-	i = 0;
-	j = 1;
-	while (i < 99)
-	{
-		j = i + 1;
-		while (j <= 99)
-		{
-			ft_divmod(i);
-			ft_putchar(' ');
-			ft_divmod(j);
-			if (!(i == 98 && j == 99))
-			{
-				write(1, ", ", 2);
-			}
-			j++;
-		}
-		i++;
-	}
+	*nbr = 42;
 }

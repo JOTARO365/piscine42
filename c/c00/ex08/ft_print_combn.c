@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_comb2.c                                   :+:      :+:    :+:   */
+/*   ft_print_combn.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiaon-in <wiaon-in@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/20 11:52:42 by wiaon-in          #+#    #+#             */
-/*   Updated: 2025/05/22 09:15:21 by wiaon-in         ###   ########.fr       */
+/*   Created: 2025/05/21 00:58:11 by wiaon-in          #+#    #+#             */
+/*   Updated: 2025/05/21 21:09:13 by wiaon-in         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,33 +17,34 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-void	ft_divmod(int n)
+void	ft_recursive(int n)
 {
-	ft_putchar(n / 10 + '0');
-	ft_putchar(n % 10 + '0');
-}
-
-void	ft_print_comb2(void)
-{
+	int		*arry;
 	int		i;
 	int		j;
 
-	i = 0;
-	j = 1;
-	while (i < 99)
+	while (arry[n - 1] && i <= 9)
 	{
-		j = i + 1;
-		while (j <= 99)
+
+		if (n == 1)
 		{
-			ft_divmod(i);
-			ft_putchar(' ');
-			ft_divmod(j);
-			if (!(i == 98 && j == 99))
-			{
-				write(1, ", ", 2);
-			}
-			j++;
+			ft_putchar(i + '0');
+			write(1, ", ", 2);
+			i++;
 		}
-		i++;
+		if (n > 1 && n < 10)
+		{
+			
+		}
+		else
+		{
+			return ;
+		}
 	}
+}
+
+int	main(void)
+{
+	ft_recursive(1);
+	return (0);
 }

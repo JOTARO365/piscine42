@@ -6,7 +6,7 @@
 /*   By: wiaon-in <wiaon-in@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 10:05:45 by wiaon-in          #+#    #+#             */
-/*   Updated: 2025/05/20 11:46:50 by wiaon-in         ###   ########.fr       */
+/*   Updated: 2025/05/22 01:37:15 by wiaon-in         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,15 @@ void	ft_print_comb(void)
 	char	enlln;
 
 	frtln = '0';
+	secln = '1';
+	enlln = '2';
+	
 	while (frtln <= '7')
 	{
 		secln = frtln + 1;
-		secln = '1';
 		while (secln <= '8')
 		{
 			enlln = secln + 1;
-			enlln = '2';
 			while (enlln <= '9')
 			{
 				ft_write(frtln, secln, enlln);
@@ -47,4 +48,10 @@ void	ft_print_comb(void)
 		}
 		frtln++;
 	}
+}
+
+int	main(void)
+{
+	ft_print_comb();
+	return (0);
 }
