@@ -6,7 +6,7 @@
 /*   By: wiaon-in <wiaon-in@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 11:38:34 by wiaon-in          #+#    #+#             */
-/*   Updated: 2025/06/01 12:52:28 by wiaon-in         ###   ########.fr       */
+/*   Updated: 2025/06/01 15:36:37 by wiaon-in         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,7 +131,13 @@ int	main(int argc, char **argv)
 	i = 0;
 	while (i < size)
 	{
-		free(grid[i]);
+		j = 0;
+		while (j < size)
+		{
+			free(grid[i]);
+			free(grid[j]);
+			j++;
+		}
 		i++;
 	}
 	free(cpy_count);
