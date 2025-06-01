@@ -1,56 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   grid.c                                             :+:      :+:    :+:   */
+/*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiaon-in <wiaon-in@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/31 11:56:07 by wiaon-in          #+#    #+#             */
-/*   Updated: 2025/06/01 23:27:51 by wiaon-in         ###   ########.fr       */
+/*   Created: 2025/06/01 20:49:45 by wiaon-in          #+#    #+#             */
+/*   Updated: 2025/06/01 23:09:01 by wiaon-in         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <unistd.h>
 
-void	print_grid(int **grid, int size)
+void	free_all(int **grid, int size, char *cpy_count, char *cpy_parse)
 {
 	int		i;
-	int		j;
-	char	c;
 
 	i = 0;
 	while (i < size)
 	{
-		j = 0;
-		while (j < size)
-		{
-			c = grid[i][j] + '0';
-			write(1, &c, 1);
-			write(1, " ", 1);
-			j++;
-		}
-		write(1, "\n", 1);
+		free(grid[i]);
 		i++;
 	}
+	free(cpy_count);
+	free(cpy_parse);
 }
-
-void	reset_grid(int **grid, int size)
-{
-	int		i;
-	int		j;
-
-	i = 0;
-	while (i < size)
-	{
-		grid[i] = malloc(size * sizeof(int));
-		j = 0;
-		while (j < size)
-		{
-			grid[i][j] = 0;
-			j++;
-		}
-		i++;
-	}
-}
-

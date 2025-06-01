@@ -6,7 +6,7 @@
 /*   By: wiaon-in <wiaon-in@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 11:53:30 by wiaon-in          #+#    #+#             */
-/*   Updated: 2025/06/01 12:04:48 by wiaon-in         ###   ########.fr       */
+/*   Updated: 2025/06/01 22:56:53 by wiaon-in         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,11 @@ char	*ft_strtok(char *str, const char *delm)
 {
 	static char		*next = NULL;
 	char			*start;
-	int				i;
 
 	if (str)
 		next = str;
 	if (!next || *next == '\0')
 		return (NULL);
-	i = 0;
 	while (*next && ft_is_delm(*next, delm))
 		next++;
 	if (*next == '\0')
@@ -76,39 +74,14 @@ char	*ft_strtok(char *str, const char *delm)
 	return (start);
 }
 
-int	*allocate_grid(int **grid, int size)
-{
-	int		i;
-	int		j;
-
-	i = 0;
-	while (i < size)
-	{
-		grid[i] = malloc(size * sizeof(int));
-		if (!grid)
-			return (0);
-		while (j < size)
-		{
-			grid[i][j] = 0;
-			j++;
-		}
-		i++;
-	}
-}
-
 int	ft_parse(char *input, int **grid, int size)
 {
 	char	*token;
-	int		i;
-	int		j;
 	int		count;
 
-	grid = malloc(size * sizeof(int *));
 	if (!grid || !input)
 		return (0);
-	i = 0;
 	count = 0;
-	allocate_grid(grid, size);
 	token = ft_strtok(input, " ");
 	while (token && count < size * size)
 	{
